@@ -1911,7 +1911,7 @@
       "id": 9
     },
     {
-      "idModule": "0013",
+      "idModule": "0012",
       "publisher": "SL",
       "price": 30,
       "pages": 30,
@@ -1919,6 +1919,28 @@
       "coments": "",
       "idUser": 3,
       "id": 10
+    },
+    {
+      "idModule": "0012",
+      "publisher": "SL",
+      "price": 30,
+      "pages": 30,
+      "status": "good",
+      "coments": "",
+      "idUser": 3,
+      "id": 11
+    },
+    {
+      "idModule": "0013",
+      "publisher": "SL",
+      "price": 400,
+      "pages": 400,
+      "status": "good",
+      "coments": "",
+      "idUser": 3,
+      "soldDate": "",
+      "photo": "",
+      "id": 12
     }
   ]
 }

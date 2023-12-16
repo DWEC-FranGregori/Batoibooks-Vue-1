@@ -52,10 +52,10 @@ let id, idModule, publisher, price, pages, status, coments = ref('')
 const addBook = async () => {
     let newBook = { id, idModule, publisher, price, pages, status, coments: coments.value }
     newBook.idUser = 3
-    console.log('Añadir libro')
+    newBook.soldDate = ""
+    newBook.photo = ""
     const repository = new BooksRepository()
     try {
-        console.log(newBook)
         await repository.addBook(newBook)
     } catch (error) {
         console.error(error)
