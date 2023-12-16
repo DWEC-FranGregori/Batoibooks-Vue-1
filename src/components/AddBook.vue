@@ -4,14 +4,8 @@
         <div>
             <input type="text" disabled v-model="id">
         </div>
-        <div>
-            <label>Módulo:</label>
-            <select required v-model="idModule">
-                <option value="">-Selecciona un módulo-</option>
-                <option v-for="module in modules" :key="modules.code" :value="module.code"> {{ module.cliteral }}</option>
-            </select>
-            <br>
-        </div>
+
+        <Modules @getModule="order"></Modules>
 
         <div>
             <label>Editorial:</label>
@@ -48,20 +42,21 @@
 </template>
 
 <script setup>
-import ModulesRepository from '@/repositories/ModulesRepository'
-import { ref, onMounted } from 'vue';
+import Modules from '@/components/Modules.vue'
 
-let modules = ref([])
+import { ref } from 'vue';
+
 let id, idModule, publisher, price, pages, status, coments = ref('')
 
-onMounted(async () => {
-    const repository = new ModulesRepository()
-    modules.value = await repository.getAllModules()
-})
 
 const addBook = () => {
     const newBook = { id, idModule, publisher, price, pages, status, coments }
+    console.log('Añadir libro')
     console.log(newBook)
+}
+
+const order = (module) => {
+    idModule = module
 }
 
 </script>
