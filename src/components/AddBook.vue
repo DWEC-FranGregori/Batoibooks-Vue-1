@@ -1,5 +1,5 @@
 <template>
-    <form @click="addBook">
+    <form @submit.prevent="addBook">
         <h1>Añadir libro</h1>
         <div>
             <input type="text" disabled v-model="id">
@@ -42,17 +42,24 @@
 </template>
 
 <script setup>
+import BooksRepository from '@/repositories/BooksRepository';
 import Modules from '@/components/Modules.vue'
 
 import { ref } from 'vue';
 
 let id, idModule, publisher, price, pages, status, coments = ref('')
 
-
-const addBook = () => {
-    const newBook = { id, idModule, publisher, price, pages, status, coments }
+const addBook = async () => {
+    let newBook = { id, idModule, publisher, price, pages, status, coments: coments.value }
+    newBook.idUser = 3
     console.log('Añadir libro')
-    console.log(newBook)
+    const repository = new BooksRepository()
+    try {
+        console.log(newBook)
+        await repository.addBook(newBook)
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 const order = (module) => {

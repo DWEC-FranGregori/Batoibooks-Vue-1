@@ -12,11 +12,20 @@ export default class ModulesRepository {
         }
     }
 
-    async removeBook(code) {
+    async removeModule(code) {
         try {
-            await axios.delete(`${SERVER}/mocules/${id}`)
+            await axios.delete(`${SERVER}/modules/${code}`)
         } catch (error) {
-            throw Error(`Error: ${error}`)
+            throw new Error(`Error: ${error}`)
+        }
+    }
+
+    async addModule({ module }) {
+        console.log(module)
+        try {
+            await axios.post(`${SERVER}/modules`, module)
+        } catch (error) {
+            throw new Error(`Error: ${error}`)
         }
     }
 }
