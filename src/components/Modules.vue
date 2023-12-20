@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label>Módulo:</label>
+        <label>Módulo</label>
         <select required v-model="code" @change="order">
             <option disabled value="">Please Select</option>
             <option v-for="module in modules" :key="modules.code" :value="module.code"> {{
@@ -32,4 +32,8 @@ const order = (event) => {
 }
 </script>
 
-<style></style>
+<style scoped lang="sass">
+label 
+    display: flex 
+    flex-direction: column
+</style>

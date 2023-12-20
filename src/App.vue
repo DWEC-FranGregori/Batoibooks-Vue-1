@@ -15,6 +15,7 @@ import AddBook from '@/components/AddBook.vue'
 </script>
 
 <style scoped lang="sass">
-div
-  margin: 0px
+*
+  padding:0px
+  margin:0px
 </style>

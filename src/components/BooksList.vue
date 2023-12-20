@@ -15,7 +15,6 @@ let books = ref([])
 onMounted(async () => {
     try {
         books.value = await repository.getAllBooks()
-        console.log(books)
     } catch (error) {
         console.error(error)
     }
